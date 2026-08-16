@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistemy</title>
+    
+    <!-- Fuente script de Yellowtail -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Yellowtail&display=swap" rel="stylesheet">
+
+    <!-- Estilos de tu App -->
+    <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="css/homeworks.css">
+</head>
+<body>
+
+    <!-- El contenedor dinámico único -->
+    <div id="root">Cargando Sistemy...</div>
+
+    <!-- 1. Librería CDN de Supabase -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script>
+    
+    <!-- 2. Tu clave y URL de Supabase -->
+    <script src="js/supabase.js" defer></script> 
+    
+    <!-- 3. Funciones de Registro, Login y Google -->
+    <script src="js/google.js" defer></script>
+
+    <!-- 4. funciones del login (la de los ojos de las contraseñas, la de cmabiar de pagina de inicio y la de los terminos y condiciones)-->
+     <script src="js/login.js" defer></script>
+    
+    <!-- 5. Navegación del Panel de Control -->
+    <script src="js/homeworks.js" defer></script> 
+    
+    <!-- 6. Lógica Principal (Renderizador dinámico) -->
+    <script src="js/manejo_pantallas.js" defer></script> 
+
+</body>
+</html>

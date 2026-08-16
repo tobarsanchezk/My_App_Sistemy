@@ -1,0 +1,78 @@
+<div id="Pantalla_1">
+
+    <div class="app-container">
+        <aside class="sidebar">
+            <button class="nav-btn active" onclick="navigate('tareas', this)">Tareas</button>
+            <button class="nav-btn" onclick="navigate('tareas-diarias', this)">Tareas diarias</button>
+            <button class="nav-btn" onclick="navigate('etiquetas', this)">Etiquetas</button>
+            <button class="nav-btn" onclick="navigate('amigos', this)">Amigos</button>
+            <button class="nav-btn" onclick="navigate('proyectos', this)">Proyectos</button>
+            <button class="nav-btn" onclick="navigate('tableros', this)">Tableros</button>
+        </aside>
+
+        <main class="main-content">
+            
+            <div id="view-tareas" class="view-section active">
+                <div class="panel-column column-tasks">
+                    <div class="panel-header">
+                        <h2>Tus tareas</h2>
+                        <div class="header-icons">
+                            <span>&#8942;</span><span>&#10065;</span>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        <div class="task-card">
+                            <div class="task-card-header">
+                                <span class="task-title">1) Navegacion del...</span>
+                                <div class="card-icons"><span>&#8942;</span><span>&#10065;</span></div>
+                            </div>
+                            <div class="task-card-footer">Fecha: 01/03/2026 Domingo 11:59</div>
+                        </div>
+
+                        <div class="task-card">
+                            <div class="task-card-header">
+                                <span class="task-title">2) 50% de la nave...</span>
+                                <div class="card-icons"><span>&#8942;</span><span>&#10065;</span></div>
+                            </div>
+                            <div class="task-card-footer">Fecha: 01/03/2026 Domingo 11:59</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel-column column-calendar">
+                    <div class="panel-header">
+                        <h2>Calendario</h2>
+                        <div class="header-icons">
+                            <span>&#8942;</span><span>&#10065;</span>
+                        </div>
+                    </div>
+                    <div class="panel-body calendar-scroll">
+                        <div class="calendar-box">
+                            <div class="calendar-month-title">Marzo</div>
+                            <div class="calendar-grid">
+                                <div class="day-name">Lunes</div><div class="day-name">Martes</div><div class="day-name">Miérco</div><div class="day-name">Jueves</div><div class="day-name">Viernes</div><div class="day-name">Sábado</div><div class="day-name">Doming</div>
+                                <div class="day-num empty">23</div><div class="day-num empty">24</div><div class="day-num empty">25</div><div class="day-num empty">26</div><div class="day-num empty">27</div><div class="day-num empty">28</div><div class="day-num highlight">01</div>
+                                <div class="day-num">02</div><div class="day-num">03</div><div class="day-num">04</div><div class="day-num">05</div><div class="day-num">06</div><div class="day-num">07</div><div class="day-num">08</div>
+                                <div class="day-num">09</div><div class="day-num">10</div><div class="day-num">11</div><div class="day-num">12</div><div class="day-num">13</div><div class="day-num">14</div><div class="day-num">15</div>
+                                <div class="day-num">16</div><div class="day-num">17</div><div class="day-num">18</div><div class="day-num">19</div><div class="day-num">20</div><div class="day-num">21</div><div class="day-num">22</div>
+                                <div class="day-num">23</div><div class="day-num">24</div><div class="day-num">25</div><div class="day-num">26</div><div class="day-num">27</div><div class="day-num">28</div><div class="day-num">29</div>
+                                <div class="day-num">30</div><div class="day-num">31</div><div class="day-num empty">01</div><div class="day-num empty">02</div><div class="day-num empty">03</div><div class="day-num empty">04</div><div class="day-num empty">05</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="view-desarrollo" class="view-section">
+                <div class="development-box">
+                    <div class="dev-icon">&#9881;</div>
+                    <h2 id="dev-title">En desarrollo</h2>
+                    <p>Estamos trabajando activamente en esta sección para construir el entorno perfecto de "Sistemy". ¡Vuelve pronto!</p>
+                </div>
+            </div>
+
+        </main>
+    </div>
+</div>
+
+</body>

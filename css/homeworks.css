@@ -1,0 +1,247 @@
+/* VARIABLES GLOBALES CON TU PALETA Y TIPOGRAFÍAS EXACTAS */
+#Pantalla_1 {
+    --color-bg-main: #8F4B4B;          /* Fondo más oscuro de la paleta */
+    --color-panel-bg: #E2E2E2;         /* Fondo donde están las tareas y botones inactivos */
+    --color-selected: #E89292;         /* Botón activo, títulos de tareas y títulos generales */
+    --color-unselected: #E2E2E2;       /* Mismo tono gris para consistencia visual */
+    --color-card-body: #FFADAD;        /* Contenido/cuerpo interno de las tareas */
+    --color-border: #4d2323;           /* Borde oscuro que combina con el fondo */
+    --color-text-dark: #1a0a0a;        /* Texto oscuro para buena legibilidad */
+    
+    /* Fuentes exactas */
+    --font-script: 'Yellowtail', cursive;
+    /* SF Pro es nativa de Apple; añadimos alternativas idénticas para otros sistemas */
+    --font-sans: 'SF Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+/* REINICIO ESTÁNDAR */
+#Pantalla_1 * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+#Pantalla_1 {
+    font-family: var(--font-sans);
+    background-color: var(--color-bg-main);
+    color: var(--color-text-dark);
+    height: 100vh;
+    overflow: hidden;
+}
+
+#Pantalla_1 .app-container {
+    display: block;
+    height: 100vh;
+    position: relative;
+    padding: 10px;
+}
+
+/* BARRA LATERAL (BOTONES) */
+#Pantalla_1 .sidebar {
+    position: absolute;
+    top: 10px; left: 10px; bottom: 10px;
+    width: 220px;
+}
+
+#Pantalla_1 .nav-btn {
+    display: block;
+    width: 100%;
+    height: calc((100% - 25px) / 6);
+    margin-bottom: 5px;
+    background-color: var(--color-unselected);
+    border: 2px solid var(--color-border); /* Grosor base de 3px */
+    font-family: var(--font-script);
+    font-size: 1.9rem;
+    color: var(--color-text-dark);
+    cursor: pointer;
+    text-align: center;
+    border-radius: 6px;
+    transition: background-color 0.2s ease;
+}
+
+#Pantalla_1 .nav-btn.active {
+    background-color: var(--color-selected);
+}
+
+#Pantalla_1 .nav-btn:hover {
+    filter: brightness(0.95);
+}
+
+/* ÁREA DE CONTENIDO (CONTENEDOR INVISIBLE PARA EVITAR DESFASES) */
+#Pantalla_1 .main-content {
+    position: absolute;
+    top: 10px; left: 240px; right: 10px; bottom: 10px;
+    background-color: transparent;
+    border: none;
+    overflow: visible;
+}
+
+#Pantalla_1 .view-section {
+    display: none;
+    width: 100%; height: 100%;
+}
+
+#Pantalla_1 .view-section.active {
+    display: block;
+}
+
+/* PANELES DE TAREAS Y CALENDARIO FLOTANTES INDEPENDIENTES */
+#Pantalla_1 .panel-column {
+    position: absolute;
+    top: 0; bottom: 0;
+    background-color: var(--color-panel-bg);
+    border: 2px solid var(--color-border); /* Mismo contorno de 3px que los botones */
+    border-radius: 6px;                   /* Esquinas perfectamente redondeadas */
+    overflow: hidden;                      /* Corta el contenido interno en las esquinas */
+}
+
+/* Separación central exacta de 10px (5px de cada columna) */
+#Pantalla_1 .column-tasks {
+    left: 0;
+    width: calc(50% - 5px);
+}
+
+#Pantalla_1 .column-calendar {
+    right: 0;
+    width: calc(50% - 5px);
+}
+
+/* ENCABEZADOS DE LOS PANELES */
+#Pantalla_1 .panel-header {
+    height: 60px;
+    background-color: var(--color-selected);
+    border-bottom: 3px solid var(--color-border);
+    padding: 0 15px;
+    position: relative;
+}
+
+#Pantalla_1 .panel-header h2 {
+    font-family: var(--font-script);
+    font-size: 2.3rem;
+    line-height: 60px;
+    font-weight: normal;
+}
+
+#Pantalla_1 .header-icons {
+    position: absolute; right: 15px; top: 0;
+    line-height: 60px; font-size: 1.6rem;
+}
+
+#Pantalla_1 .header-icons span { margin-left: 10px; cursor: pointer; }
+
+#Pantalla_1 .panel-body {
+    position: absolute;
+    top: 60px; left: 0; right: 0; bottom: 0;
+    padding: 15px;
+    overflow-y: auto;
+}
+
+/* TARJETAS DE TAREAS COMPUESTAS */
+#Pantalla_1 .task-card {
+    border: 2px solid var(--color-border);
+    border-radius: 6px;
+    margin-bottom: 15px;
+    overflow: hidden;
+}
+
+/* Título de la tarea */
+#Pantalla_1 .task-card-header {
+    background-color: var(--color-selected);
+    padding: 12px 15px;
+    border-bottom: 2px solid var(--color-border);
+    position: relative;
+}
+
+#Pantalla_1 .task-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+#Pantalla_1 .card-icons { position: absolute; right: 15px; top: 12px; }
+
+/* Contenido/Footer de la tarea */
+#Pantalla_1 .task-card-footer {
+    background-color: var(--color-card-body);
+    padding: 10px 15px;
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+/* CONTENEDOR INTERNO DEL CALENDARIO (Gris unificado) */
+#Pantalla_1 .calendar-scroll {
+    background-color: var(--color-panel-bg);
+}
+
+#Pantalla_1 .calendar-box {
+    background-color: #fff;
+    border: 2px solid var(--color-border);
+    border-radius: 6px;
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+
+#Pantalla_1 .calendar-month-title {
+    font-family: var(--font-script);
+    font-size: 2.1rem;
+    text-align: center;
+    padding: 10px 0;
+    background-color: var(--color-selected);
+    color: var(--color-text-dark);
+}
+
+#Pantalla_1 .calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    border-top: 2px solid var(--color-border);
+}
+
+#Pantalla_1 .day-name {
+    background-color: #f0f0f0;
+    font-size: 0.75rem;
+    font-weight: bold;
+    text-align: center;
+    padding: 6px 2px;
+    border-bottom: 1px solid #ccc;
+}
+
+#Pantalla_1 .day-num { padding: 10px 2px; text-align: center; font-size: 0.85rem; font-weight: 500; }
+#Pantalla_1 .day-num.empty { color: #aaa; background-color: #f9f9f9; }
+
+#Pantalla_1 .day-num.highlight {
+    background-color: #ffcccc;
+    color: #b32424;
+    font-weight: bold;
+    border: 2px solid #b32424;
+    border-radius: 50%;
+}
+
+/* CAJA DE SECCIÓN EN DESARROLLO (Vistas secundarias) */
+#Pantalla_1 .development-box {
+    width: 100%; height: 100%;
+    background-color: var(--color-panel-bg);
+    border: 2px solid var(--color-border);
+    border-radius: 14px;
+    display: flex; flex-direction: column;
+    justify-content: center; align-items: center;
+    text-align: center; padding: 40px;
+}
+
+#Pantalla_1 .dev-icon { font-size: 4rem; margin-bottom: 20px; animation: pantalla1-spin 4s linear infinite; }
+@keyframes pantalla1-spin { 100% { transform: rotate(360deg); } }
+
+#Pantalla_1 .development-box h2 {
+    font-family: var(--font-script);
+    font-size: 3.5rem;
+    color: var(--color-bg-main);
+    margin-bottom: 15px;
+}
+
+#Pantalla_1 .development-box p { font-size: 1.2rem; max-width: 500px; color: #4a2525; }
+
+/* DISEÑO RESPONSIVE AUTOMÁTICO */
+@media (max-width: 850px) {
+    #Pantalla_1 .sidebar { position: relative; width: 100%; display: flex; flex-wrap: wrap; margin-bottom: 10px; }
+    #Pantalla_1 .nav-btn { flex: 1 1 30%; height: 50px; font-size: 1.3rem; margin: 2px; }
+    #Pantalla_1 .main-content { position: relative; left: 0; width: 100%; height: calc(100vh - 140px); }
+    #Pantalla_1 .column-tasks, .column-calendar { position: relative; width: 100%; height: 50%; left: 0; }
+}
