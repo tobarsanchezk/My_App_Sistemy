@@ -1,23 +1,35 @@
+// 1. nueva funcion pura la que evaluará Jest
+function validarDatosRegistro(nameVal, emailVal, passVal) {
+    if (nameVal === "" || emailVal === "" || passVal === "") {
+        return { valido: false, error: "Por favor, no dejes campos vacíos." };
+    }
+    if (/\s/.test(nameVal) || /\s/.test(emailVal) || /\s/.test(passVal)) {
+        return { valido: false, error: "Los campos no pueden contener espacios en blanco." };
+    }
+    if (nameVal.length < 4 || passVal.length < 6) {
+        return { valido: false, error: "El usuario (mín. 4) o la contraseña (mín. 6) son muy cortos." };
+    }
+    const caracteresSeguros = /^[a-zA-Z0-9_]+$/;
+    if (!caracteresSeguros.test(nameVal)) {
+        return { 
+            valido: false, 
+            error: "El usuario solo puede contener letras, números y guiones bajos (_)." 
+        };
+    }
+    return { valido: true, error: null };
+}
+
+// 2. FUNCIÓN ORIGINAL ACTUALIZADA
 async function registrarUsuario() {
     const nameVal = document.getElementById('name-3').value.trim();
     const emailVal = document.getElementById('email-3').value.trim();
     const passVal = document.getElementById('pass-3').value.trim();
 
-    // 1. Validar campos vacíos
-    if (nameVal === "" || emailVal === "" || passVal === "") {
-        mostrarError("Por favor, no dejes campos vacíos.");
-        return;
-    }
-
-    // 2. Validar espacios en blanco
-    if (/\s/.test(nameVal) || /\s/.test(emailVal) || /\s/.test(passVal)) {
-        mostrarError("Los campos no pueden contener espacios en blanco.");
-        return;
-    }
-
-    // 3. Validar longitud mínima
-    if (nameVal.length < 4 || passVal.length < 6) {
-        mostrarError("El usuario (mín. 4) o la contraseña (mín. 6) son muy cortos.");
+    // 3. Usamos la nueva función para validar
+    const validacion = validarDatosRegistro(nameVal, emailVal, passVal);
+    
+    if (!validacion.valido) {
+        mostrarError(validacion.error);
         return;
     }
 
@@ -49,7 +61,7 @@ async function registrarUsuario() {
         return;
     }
 
-// 6. Éxito total con mensaje visual en lugar de alert
+    // 6. Éxito total con mensaje visual en lugar de alert
     mostrarExito("¡Registro exitoso! Redirigiendo...");
     
     // Esperamos un segundo para que el usuario alcance a leer el mensaje antes de cambiar de vista
@@ -129,7 +141,10 @@ async function recuperarCuenta() {
 // recordatorio de que esta parte le dice a vs "Si me está leyendo Jest (el de las pruebas unitarias y demas), exporta mi función para la prueba; si me está leyendo el navegador, ignora esto y no te rompas".
 if (typeof module !== 'undefined' && module.exports) {
     module.exports = { 
-        // Aquí pondremos el nombre de la función que valida el registro.
-        // Ejemplo: nombreDeTuFuncion 
+        validarDatosRegistro,
+        registrarUsuario,
+        iniciarSesion,
+        iniciarConGoogle,
+        recuperarCuenta
     };
 }
