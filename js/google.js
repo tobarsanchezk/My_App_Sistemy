@@ -123,4 +123,13 @@ async function recuperarCuenta() {
     }, 1500); 
 
     }
+
+}
+
+// recordatorio de que esta parte le dice a vs "Si me está leyendo Jest (el de las pruebas unitarias y demas), exporta mi función para la prueba; si me está leyendo el navegador, ignora esto y no te rompas".
+if (typeof module !== 'undefined' && module.exports) {
+    module.exports = { 
+        // Aquí pondremos el nombre de la función que valida el registro.
+        // Ejemplo: nombreDeTuFuncion 
+    };
 }

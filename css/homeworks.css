@@ -110,7 +110,7 @@
 #Pantalla_1 .panel-header {
     height: 60px;
     background-color: var(--color-selected);
-    border-bottom: 3px solid var(--color-border);
+    border-bottom: 2px solid var(--color-border);
     padding: 0 15px;
     position: relative;
 }
