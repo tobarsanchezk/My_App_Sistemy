@@ -1,40 +1,42 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sistemy</title>
+<!DOCTYPE html> <!-- Le dice al navegador que el archivo usa lo version mas moderna html 5-->
+<html lang="es"> <!--abre el archivo y le dice al navegador que el archivo esta en español-->
+<head> <!-- abre la cabeza del archivo donde van las configuraciones -->
+
+    <meta charset="UTF-8"> <!--define que caracteres se usan como las ñ y tildes para que no aparezcan simbolos raros-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!--hace que se adapte el dispositivo al ancho del dispositivo-->
+    <title>Sistemy</title> <!--el titulo de la app que aparecera en la pestaña de google-->
     
     <!-- Fuente script de Yellowtail -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com"> <!-- se conecta a la pagina de las letras de google para mas velocidas-->
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Yellowtail&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Yellowtail&display=swap" rel="stylesheet"> <!--este descarga la letra yellowtail-->
 
     <!-- Estilos de la App -->
-    <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="css/login.css">    <!--ambos cargan los css de la pagina-->
     <link rel="stylesheet" href="css/homeworks.css">
-</head>
+
+</head> <!--cierra head-->
 <body>
 
-    <!-- El contenedor dinámico único -->
+    <!-- El contenedor dinámico único el que cambia las pantallas mas rapido-->
     <div id="root">Cargando Sistemy...</div>
 
     <!-- 1. Librería CDN de Supabase -->
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script> <!-- carga el motor de supabase para que funcione sin tener que descargarlo aqui como rchivo y vaya muy fluid-->
     
     <!-- 2. clave y URL de Supabase -->
-    <script src="js/supabase.js" defer></script> 
+    <script src="js/supabase.js" defer></script>  <!--el achivo que esta aqui -->
     
-    <!-- 3. Funciones de Registro, Login y Google -->
+    <!-- 3. Funciones de Registro, envio a la api y Google -->
     <script src="js/google.js" defer></script>
 
     <!-- 4. funciones del login (la de los ojos de las contraseñas, la de cmabiar de pagina de inicio y la de los terminos y condiciones)-->
      <script src="js/login.js" defer></script>
     
-    <!-- 5. Navegación del Panel de Control -->
+    <!-- 5. la pntalla principal la de las tareas -->
     <script src="js/homeworks.js" defer></script> 
     
-    <!-- 6. Lógica Principal (Renderizador dinámico) -->
+    <!-- 6. el que cambia las patallas mas rapido junto al root -->
     <script src="js/manejo_pantallas.js" defer></script> 
 
 </body>

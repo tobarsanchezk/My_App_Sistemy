@@ -1,9 +1,9 @@
-// js/main.js - Director de orquesta para la carga de pantallas
+// en esta funcion se cargan las pantallas que iran al root del index para no cargar todo desde cero, 
 
-async function cargarVista(nombreVista) {
-    const root = document.getElementById('root');
+async function cargarVista(nombreVista) { // aqui la funcion toma el nombre de la pantalla que quiero cargar, el async es para que espere a que carguen las paginas y luego continuen
+    const root = document.getElementById('root'); // tomamos el root y lo convertimos en una constante para que no cambie la caja que contiene el root
     try {
-        const respuesta = await fetch(`screens/${nombreVista}.html`);
+        const respuesta = await fetch(`screens/${nombreVista}.html`); 
         if (!respuesta.ok) {
             throw new Error(`No se pudo cargar la vista: ${nombreVista}`);
         }
@@ -18,7 +18,7 @@ async function cargarVista(nombreVista) {
 // Al abrir o refrescar la página, verificamos si hay una sesión activa en Supabase
 window.addEventListener('load', async () => {
     if (typeof dbClient === 'undefined') {
-        console.error("Error crítico: dbClient no está definido. Revisa config.js");
+        console.error("Error: dbClient no está definido.");
         return;
     }
 

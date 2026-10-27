@@ -54,8 +54,7 @@ function mostrarError(mensaje) {
 }
 
 function mostrarExito(mensaje) {
-    // Si ya tienes un contenedor específico para mensajes, úsalo. 
-    // Aquí usamos el mismo principio visual que tu error pero con estilo de éxito (verde).
+    // Aquí usamos el mismo principio visual que el  error pero con estilo de éxito (verde).
     const errorDiv = document.getElementById('terms-error-1'); // O el ID de tu contenedor de alertas
     
     if (errorDiv) {
@@ -70,7 +69,7 @@ function mostrarExito(mensaje) {
             errorDiv.style.display = "none";
         }, 4000);
     } else {
-        // Fallback por si acaso el contenedor no existe con ese ID exacto
+        //  por si acaso el contenedor no existe con ese ID exacto
         console.log("Éxito: ", mensaje);
     }
 }
